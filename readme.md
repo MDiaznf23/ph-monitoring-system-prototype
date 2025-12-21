@@ -40,12 +40,12 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 <tr>
 <td align="center">
 
-*Figure 3: 3D Design of Solution Tank and Pump System*
+*Figure 1: 3D Design of Solution Tank and Pump System*
 
 </td>
 <td align="center">
 
-*Figure 4: Real-world Implementation in Agricultural Field*
+*Figure 2: Real-world Implementation in Agricultural Field*
 
 </td>
 </tr>
@@ -125,7 +125,7 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ### Circuit Diagram
 
 ![Circuit Diagram](Pictures/Elektronika.png)
-*Figure 1: Complete System Circuit Diagram*
+*Figure 3: Complete System Circuit Diagram*
 
 ---
 
@@ -181,7 +181,7 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ### Control Algorithm
 
 ![System Flowchart](Pictures/Algoritma.png)
-*Figure 2: System Control Algorithm Flowchart*
+*Figure 4: System Control Algorithm Flowchart*
 
 ### pH Control Logic
 
