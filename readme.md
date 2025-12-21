@@ -26,15 +26,25 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" align="center">
 
 ![3D Design](Pictures/Desain.jpg)
+
+</td>
+<td width="50%" align="center">
+
+![Field Implementation](Pictures/Realisasi.png)
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
 *Figure 3: 3D Design of Solution Tank and Pump System*
 
 </td>
-<td width="50%">
+<td align="center">
 
-![Field Implementation](Pictures/Realisasi.png)
 *Figure 4: Real-world Implementation in Agricultural Field*
 
 </td>
@@ -44,9 +54,6 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 #### Design Features:
 - **Modular Tank System**: Three separate containers for lime solution, acid solution, and clean water
 - **Elevated Pump Mounting**: Pumps mounted above tanks to prevent backflow and ensure gravity-assisted drainage
-- **Compact Controller Box**: Weather-resistant enclosure for ESP32 and electronics
-- **Easy Access Design**: All components accessible for maintenance and refilling
-- **Cable Management**: Organized wiring to prevent tangles and water damage
 
 ---
 
