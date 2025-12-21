@@ -20,13 +20,13 @@ An ESP32-based automatic pH monitoring and control system designed to optimize s
 
 ---
 
-## 🎨 System Design & Implementation
+## System Design & Implementation
 
 ### Design Overview
 
 The prototype was carefully designed to ensure optimal performance and ease of maintenance in agricultural field conditions.
 
-![3D Design](.Pictures/Desain.png)
+![3D Design](Pictures/Desain.png)
 *Figure 3: 3D Design of Solution Tank and Pump System*
 
 #### Design Features:
@@ -38,14 +38,14 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 
 ### Physical Implementation
 
-![Field Implementation](.Pictures/Realisasi.jpg)
+![Field Implementation](Pictures/Realisasi.jpg)
 *Figure 4: Real-world Implementation in Agricultural Field*
 
 ---
 
 ## Features
 
-### 🔄 Operating Modes
+### Operating Modes
 - **AUTO Mode**: Automatic pH monitoring and control with feedback system
 - **CALIBRATION Mode**: Quick 1-point calibration for pH sensor 
 - **SETTINGS Mode**: System parameter configuration
@@ -110,7 +110,7 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 
 ### Circuit Diagram
 
-![Circuit Diagram](.Pictures/Elektronika.png)
+![Circuit Diagram](Pictures/Elektronika.png)
 *Figure 1: Complete System Circuit Diagram*
 
 ---
@@ -166,7 +166,7 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 
 ### Control Algorithm
 
-![System Flowchart](.Pictures/algoritma.png)
+![System Flowchart](Pictures/algoritma.png)
 *Figure 2: System Control Algorithm Flowchart*
 
 ### pH Control Logic
@@ -368,7 +368,7 @@ This project is created for academic Final Project purposes.
 
 ---
 
-## 📞 Contact
+## Contact
 
 For questions or suggestions, please contact:
 - Email: mdiaznurfar23@std.unissula.ac.id
