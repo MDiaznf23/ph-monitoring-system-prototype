@@ -21,13 +21,25 @@ An ESP32-based automatic pH monitoring and control system designed to optimize s
 ---
 
 ## System Design & Implementation
-
 ### Design Overview
-
 The prototype was carefully designed to ensure optimal performance and ease of maintenance in agricultural field conditions.
+
+<table>
+<tr>
+<td width="50%">
 
 ![3D Design](Pictures/Desain.jpg)
 *Figure 3: 3D Design of Solution Tank and Pump System*
+
+</td>
+<td width="50%">
+
+![Field Implementation](Pictures/Realisasi.png)
+*Figure 4: Real-world Implementation in Agricultural Field*
+
+</td>
+</tr>
+</table>
 
 #### Design Features:
 - **Modular Tank System**: Three separate containers for lime solution, acid solution, and clean water
@@ -35,11 +47,6 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 - **Compact Controller Box**: Weather-resistant enclosure for ESP32 and electronics
 - **Easy Access Design**: All components accessible for maintenance and refilling
 - **Cable Management**: Organized wiring to prevent tangles and water damage
-
-### Physical Implementation
-
-![Field Implementation](Pictures/Realisasi.png)
-*Figure 4: Real-world Implementation in Agricultural Field*
 
 ---
 
