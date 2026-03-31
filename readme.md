@@ -13,6 +13,7 @@
 An ESP32-based automatic pH monitoring and control system designed to optimize soil conditions in agricultural applications. This system can automatically adjust soil pH levels and monitor humidity using 12 VDC pumps for lime and acid solution injection.
 
 ### Project Objectives
+
 - Automate soil pH adjustment processes
 - Monitor and control soil humidity
 - Reduce manual intervention in soil condition maintenance
@@ -21,7 +22,9 @@ An ESP32-based automatic pH monitoring and control system designed to optimize s
 ---
 
 ## System Design & Implementation
+
 ### Design Overview
+
 The prototype was carefully designed to ensure optimal performance and ease of maintenance in agricultural field conditions.
 
 <table>
@@ -40,18 +43,19 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 <tr>
 <td align="center">
 
-*Figure 1: 3D Design of Solution Tank and Pump System*
+_Figure 1: 3D Design of Solution Tank and Pump System_
 
 </td>
 <td align="center">
 
-*Figure 2: Real-world Implementation in Agricultural Field*
+_Figure 2: Real-world Implementation in Agricultural Field_
 
 </td>
 </tr>
 </table>
 
 #### Design Features:
+
 - **Modular Tank System**: Three separate containers for lime solution, acid solution, and clean water
 - **Elevated Pump Mounting**: Pumps mounted above tanks to prevent backflow and ensure gravity-assisted drainage
 
@@ -60,24 +64,28 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ## Features
 
 ### Operating Modes
+
 - **AUTO Mode**: Automatic pH monitoring and control with feedback system
-- **CALIBRATION Mode**: Quick 1-point calibration for pH sensor 
+- **CALIBRATION Mode**: Quick 1-point calibration for pH sensor
 - **SETTINGS Mode**: System parameter configuration
 
 ### Monitoring
+
 - Real-time pH reading with moving average filter
 - Soil humidity monitoring
 - System and pump status on 20x4 LCD
 - Data logging for graphical analysis
 
 ### Pump Control
+
 - **Lime Pump**: Increases soil pH
-- **Acid Pump**: Decreases soil pH  
+- **Acid Pump**: Decreases soil pH
 - **Water Pump**: Automatic circulation and irrigation
 - Cooldown protection to prevent overuse
 - Total runtime tracking for each pump
 
 ### Safety System
+
 - Emergency shutdown at critical pH (< 3.0 or > 9.0)
 - Watchdog timer to prevent system hang
 - Sensor data validation
@@ -90,17 +98,18 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 
 ### Main Components
 
-| Component | Specification | Function |
-|----------|-------------|---------|
-| **Microcontroller** | ESP32 DevKit | Main controller |
-| **pH Sensor** | Analog pH Sensor | Soil pH monitoring |
-| **Humidity Sensor** | Capacitive | Humidity monitoring |
-| **LCD** | I2C 20x4 | User interface |
-| **Relay Module** | 3 Channel 5V | Pump control |
-| **Pumps** | 3x 12 VDC Pump | Solution injection |
-| **Power Supply** | 12V Lead-Acid Battery | Power supply |
+| Component           | Specification         | Function            |
+| ------------------- | --------------------- | ------------------- |
+| **Microcontroller** | ESP32 DevKit          | Main controller     |
+| **pH Sensor**       | Analog pH Sensor      | Soil pH monitoring  |
+| **Humidity Sensor** | Capacitive            | Humidity monitoring |
+| **LCD**             | I2C 20x4              | User interface      |
+| **Relay Module**    | 3 Channel 5V          | Pump control        |
+| **Pumps**           | 3x 12 VDC Pump        | Solution injection  |
+| **Power Supply**    | 12V Lead-Acid Battery | Power supply        |
 
 ### Pin Configuration
+
 ```cpp
 // Sensor Pins
 #define PH_PIN 35              // ADC1_CH7 for pH sensor
@@ -125,7 +134,27 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ### Circuit Diagram
 
 ![Circuit Diagram](Pictures/Elektronika.png)
-*Figure 3: Complete System Circuit Diagram*
+_Figure 3: Complete System Circuit Diagram_
+
+---
+
+### Schematic
+
+![Main Schematic](Pictures/Skematik_Utama.png)
+_Figure 4: Schematic Microcontroller_
+
+![Addition Schematic](Pictures/Skematik_Tambahan.png)
+_Figure 5: Schematic Level Controler_
+
+---
+
+### PCB
+
+![Main PCB](Pictures/PCB_Utama.png)
+_Figure 6: PCB Microcontroller_
+
+![Addition PCB](Pictures/PCB_Tambahan.png)
+_Figure 7: PCB Level Converter_
 
 ---
 
@@ -137,12 +166,15 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 2. **ESP32 Board Package**
    - Open Arduino IDE → File → Preferences
    - Add the following URL to "Additional Boards Manager URLs":
+
 ```
      https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 ```
-   - Tools → Board → Boards Manager → Search "ESP32" → Install
+
+- Tools → Board → Boards Manager → Search "ESP32" → Install
 
 3. **Library Dependencies**
+
 ```
    - LiquidCrystal_I2C (by Frank de Brabander)
    - EEPROM (built-in ESP32)
@@ -151,6 +183,7 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ### Installation Steps
 
 1. **Clone Repository**
+
 ```bash
    git clone https://github.com/MDiaznf23/ph-monitoring-system.git
    cd ph-monitoring-system
@@ -181,11 +214,12 @@ The prototype was carefully designed to ensure optimal performance and ease of m
 ### Control Algorithm
 
 ![System Flowchart](Pictures/Algoritma.png)
-*Figure 4: System Control Algorithm Flowchart*
+_Figure 4: System Control Algorithm Flowchart_
 
 ### pH Control Logic
 
 The system uses **hysteresis control** to prevent oscillation:
+
 ```
 Target pH: 6.4
 
@@ -196,12 +230,14 @@ Dead Band Zone: 6.4 ± 0.6
 ```
 
 **Hysteresis Advantages:**
+
 - Reduces pump switching frequency
 - Prevents overshoot
 - Saves solution consumption
 - Extends pump lifespan
 
 ### State Machine
+
 ```
 [*] --> PUMP_OFF
 PUMP_OFF --> PUMP_ON: Activate
@@ -212,6 +248,7 @@ PUMP_ERROR --> PUMP_OFF: Manual Reset
 ```
 
 ### File Structure
+
 ```
 ├── CAPSTONE.ino              # Main file and setup
 ├── READING_PH.ino            # Sensor reading module
@@ -224,15 +261,15 @@ PUMP_ERROR --> PUMP_OFF: Manual Reset
 
 ### System Parameters
 
-| Parameter | Default | Range | Description |
-|-----------|---------|-------|------------|
-| Target pH | 6.4 | 4.0 - 10.0 | pH setpoint |
-| Lime Pump Duration | 5000 ms | 1000 - 30000 ms | Injection duration |
-| Acid Pump Duration | 5000 ms | 1000 - 30000 ms | Injection duration |
-| Lime Cooldown | 300 s | 30 - 900 s | Interval between injections |
-| Acid Cooldown | 300 s | 30 - 900 s | Interval between injections |
-| Water Cooldown | 60 s | 0 - 300 s | Water pump interval |
-| Min Humidity | 50% | - | Irrigation threshold |
+| Parameter          | Default | Range           | Description                 |
+| ------------------ | ------- | --------------- | --------------------------- |
+| Target pH          | 6.4     | 4.0 - 10.0      | pH setpoint                 |
+| Lime Pump Duration | 5000 ms | 1000 - 30000 ms | Injection duration          |
+| Acid Pump Duration | 5000 ms | 1000 - 30000 ms | Injection duration          |
+| Lime Cooldown      | 300 s   | 30 - 900 s      | Interval between injections |
+| Acid Cooldown      | 300 s   | 30 - 900 s      | Interval between injections |
+| Water Cooldown     | 60 s    | 0 - 300 s       | Water pump interval         |
+| Min Humidity       | 50%     | -               | Irrigation threshold        |
 
 ---
 
@@ -241,6 +278,7 @@ PUMP_ERROR --> PUMP_OFF: Manual Reset
 ### LCD Interface
 
 #### Main Screen (AUTO Mode)
+
 ```
 AUTO Mode  pH:6.42
 Target: 6.4 H:65%
@@ -249,6 +287,7 @@ Sample [██████████]
 ```
 
 #### Menu Navigation
+
 - **BTN_MODE**: Change mode / Back
 - **BTN_SELECT**: Select / Confirm
 - **BTN_UP/DOWN**: Navigate menu / Adjust value
@@ -274,6 +313,7 @@ Sample [██████████]
 The system sends data to Serial Monitor in CSV format for graphing and analysis:
 
 ### pH Data Format
+
 ```csv
 Timestamp(s), pH, TargetpH, AcidPump, LimePump
 1234, 6.42, 6.40, 0, 0
@@ -281,6 +321,7 @@ Timestamp(s), pH, TargetpH, AcidPump, LimePump
 ```
 
 ### Humidity Data Format
+
 ```csv
 Timestamp(s), Humidity(%), WaterPumpStatus
 1234, 65.2, 0
@@ -290,6 +331,7 @@ Timestamp(s), Humidity(%), WaterPumpStatus
 ### Data Visualization
 
 Data can be visualized using tools such as:
+
 - **Serial Plotter** Arduino IDE
 - **Python** (matplotlib, pandas)
 - **Excel / Google Sheets**
@@ -301,6 +343,7 @@ Data can be visualized using tools such as:
 ### Emergency Shutdown
 
 System will perform emergency shutdown if:
+
 - pH < 3.0 (Too Acidic)
 - pH > 9.0 (Too Alkaline)
 - Sensor error or unreadable
@@ -333,12 +376,14 @@ System will perform emergency shutdown if:
 5. System will calculate new offset
 
 **Calibration Formula:**
+
 ```cpp
 pH = (-0.0139 × rawValue) + calibrationOffset
 calibrationOffset = 7.0 + (0.0139 × rawValue)
 ```
 
 ### Calibration Tips
+
 - Clean sensor before calibration
 - Use fresh buffer solution
 - Avoid cross-contamination
@@ -351,11 +396,13 @@ calibrationOffset = 7.0 + (0.0139 × rawValue)
 ### Debug Mode
 
 To enable detailed logging:
+
 ```cpp
 #define ACTIVE_LOG_LEVEL LOG_LEVEL_DEBUG
 ```
 
 Logging levels:
+
 - `LOG_LEVEL_NONE` - No logs
 - `LOG_LEVEL_ERROR` - Critical errors only
 - `LOG_LEVEL_INFO` - Important information (default)
@@ -385,7 +432,9 @@ This project is created for academic Final Project purposes.
 ## Contact
 
 For questions or suggestions, please contact:
+
 - Email: mdiaznurfar23@std.unissula.ac.id
 - GitHub: [@mdiaznf23](https://github.com/MDiaznf23)
 
 ---
+
