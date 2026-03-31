@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 About
+## About
 
 An ESP32-based automatic pH monitoring and control system designed to optimize soil conditions in agricultural applications. This system can automatically adjust soil pH levels and monitor humidity using 12 VDC pumps for lime and acid solution injection.
 
@@ -437,4 +437,3 @@ For questions or suggestions, please contact:
 - GitHub: [@mdiaznf23](https://github.com/MDiaznf23)
 
 ---
-
