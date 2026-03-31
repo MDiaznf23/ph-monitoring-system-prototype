@@ -148,7 +148,7 @@ _Figure 5: Schematic Level Controler_
 
 ---
 
-### PCB
+### PCB Project
 
 ![Main PCB](Pictures/PCB_Utama.png)
 _Figure 6: PCB Microcontroller_
